@@ -239,17 +239,24 @@ void insert_data() {
             auxiliar2 = auxiliar->next;
 
             while (auxiliar2 != NULL) {
-                if (strcmp(corrente->nome, auxiliar->nome) >= 0 && strcmp(corrente->nome, auxiliar2->nome) <= 0) {
-                    corrente->next = auxiliar2;
+                if (strcmp(corrente->nome, auxiliar->nome) > 0 && strcmp(corrente->nome, auxiliar2->nome) < 0) {
                     auxiliar->next = corrente;
+                    corrente->next = auxiliar2;
+                    achou = 1;
 
-                    printf("\n Elemento foi inserido na lista ordenada\n\n");
+                    printf("\n Elemento foi inserido na lista ordenada!\n\n");
                     system("pause");
                     break;
                 } else {
-                    auxiliar = auxiliar2;
-                    auxiliar2 = auxiliar2->next;
+                    auxiliar = auxiliar->next;
+                    auxiliar = auxiliar2->next;
                 }
+            }
+            if(achou == 0 && strcmp(corrente->nome, auxiliar->nome)){
+                auxiliar->next = corrente;
+                corrente->next = NULL;
+                printf("\n Elemento inserido no final da lista! \n");
+                system("pause");
             }
         }
     }
