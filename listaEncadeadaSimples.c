@@ -217,6 +217,7 @@ void consulta(){
 
 //INSERÇÃO DE DADOS DE MANEIRA ORDENADA
 void insert_data() {
+    int achou = 0;
     corrente = (no*) malloc(sizeof(no));
     enterdata();
 
